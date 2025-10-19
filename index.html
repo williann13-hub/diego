@@ -17,7 +17,6 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             background-attachment: fixed;
             line-height: 1.6;
-            padding-bottom: 80px; /* Space for mobile nav */
         }
 
         /* Header Styles */
@@ -167,22 +166,19 @@
 
         /* Mobile Bottom Navigation */
         .mobile-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
-            padding: 0.5rem;
-            z-index: 100;
+            padding: 1rem 0.5rem;
             border-top: 1px solid rgba(255,255,255,0.2);
+            border-radius: 20px 20px 0 0;
+            margin-top: 2rem;
         }
 
         .mobile-nav-content {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
             max-width: 600px;
             margin: 0 auto;
         }
@@ -191,13 +187,15 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 0.5rem;
-            border-radius: 12px;
+            justify-content: center;
+            padding: 1rem 0.5rem;
+            border-radius: 16px;
             cursor: pointer;
             transition: all 0.3s ease;
-            min-width: 60px;
+            min-width: 70px;
             background: none;
             border: none;
+            text-align: center;
         }
 
         .nav-item:hover {
@@ -207,19 +205,20 @@
         .nav-item.active {
             background: linear-gradient(45deg, #667eea, #764ba2);
             color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
         }
 
         .nav-item i {
-            width: 20px;
-            height: 20px;
-            margin-bottom: 0.25rem;
+            width: 24px;
+            height: 24px;
+            margin-bottom: 0.5rem;
         }
 
         .nav-item span {
-            font-size: 0.7rem;
-            font-weight: 500;
+            font-size: 0.75rem;
+            font-weight: 600;
+            line-height: 1.2;
         }
 
         /* Content Area */
@@ -227,7 +226,6 @@
             padding: 1rem;
             max-width: 1200px;
             margin: 0 auto;
-            min-height: calc(100vh - 161px);
         }
 
         .content-section {
@@ -279,7 +277,7 @@
         }
 
         .grid-cols-2 {
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr;
         }
 
         .grid-cols-4 {
@@ -844,13 +842,13 @@
             .notes-summary .grid {
                 grid-template-columns: repeat(3, 1fr);
             }
+
+            .mobile-nav {
+                display: none;
+            }
         }
 
         @media (min-width: 1024px) {
-            body {
-                padding-bottom: 0;
-            }
-            
             .mobile-nav {
                 display: none;
             }
@@ -1039,11 +1037,11 @@
                 <span>Agenda</span>
             </button>
             <button class="nav-item" onclick="showSection('biblioteca')">
-                <i data-lucide="library"></i>
+                <i data-lucide="book"></i>
                 <span>Biblioteca</span>
             </button>
             <button class="nav-item" onclick="showSection('suporte')">
-                <i data-lucide="headphones"></i>
+                <i data-lucide="help-circle"></i>
                 <span>Suporte</span>
             </button>
         </div>
